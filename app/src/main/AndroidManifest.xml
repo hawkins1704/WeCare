@@ -16,6 +16,8 @@
         <activity android:name=".LaunchActivity">
 
         </activity>
+        <activity android:name=".LogAsActivity" />
+        <activity android:name=".SpetialistHome" />
         <activity android:name=".ButtonBreathActivity" />
         <activity android:name=".RelaxSelectorActivity" />
         <activity android:name=".MediaPlayerActivity" />

@@ -28,6 +28,7 @@ class MainActivity : AppCompatActivity() {
         initViewModel()
         val registro=findViewById<Button>(R.id.bt_signup)
         val login=findViewById<Button>(R.id.bt_login)
+        val login2=findViewById<Button>(R.id.bt_login)
         val sharedPref = this?.getSharedPreferences(
             getString(R.string.preference_file_key), Context.MODE_PRIVATE)
 
@@ -41,6 +42,10 @@ class MainActivity : AppCompatActivity() {
                 }
                 startActivity(intent)
             }*/
+        }
+        login2.setOnClickListener(){
+            val intent=Intent(this,LogAsActivity::class.java)
+            startActivity(intent)
         }
         registro.setOnClickListener(){
 
