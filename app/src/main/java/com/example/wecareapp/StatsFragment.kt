@@ -46,46 +46,45 @@ class StatsFragment : Fragment() {
         // Inflate the layout for this fragment
         val view=inflater.inflate(R.layout.fragment_stats, container, false)
         var heartRateText:TextView=view.findViewById(R.id.heartRate)
-        var systolicText:TextView=view.findViewById(R.id.systolic)
-        var diastolicText:TextView=view.findViewById(R.id.diastolic)
+        var oxygenText:TextView=view.findViewById(R.id.oxygen)
 
 
-    createAPIClient(heartRateText , systolicText,  diastolicText)
+    createAPIClient(heartRateText , oxygenText)
         return view
     }
 
-    val bloodPressureOptions= FitnessOptions.builder()
+    val healthDataOptions= FitnessOptions.builder()
         .addDataType(DataType.TYPE_HEART_RATE_BPM, FitnessOptions.ACCESS_READ)
-        .addDataType(HealthDataTypes.TYPE_BLOOD_PRESSURE, FitnessOptions.ACCESS_READ)
+        .addDataType(HealthDataTypes.TYPE_OXYGEN_SATURATION, FitnessOptions.ACCESS_READ)
         .build()
 
-    private fun createAPIClient(heartRateText:TextView, systolicText:TextView,  diastolicText:TextView) {
+    private fun createAPIClient(heartRateText:TextView, oxygenText:TextView) {
 
-        val account = GoogleSignIn.getAccountForExtension(activity as Activity, bloodPressureOptions)
-        if (!GoogleSignIn.hasPermissions(account, bloodPressureOptions)) {
+        val account = GoogleSignIn.getAccountForExtension(activity as Activity, healthDataOptions)
+        if (!GoogleSignIn.hasPermissions(account, healthDataOptions)) {
             GoogleSignIn.requestPermissions(
                 this, // your activity
                 1, // e.g. 1
                 account,
-                bloodPressureOptions
+                healthDataOptions
             )
         } else {
-            accessGoogleFit(heartRateText, systolicText,  diastolicText)
+            accessGoogleFit(heartRateText, oxygenText)
         }
 
     }
 
-    private fun accessGoogleFit(heartRateText:TextView, systolicText:TextView,  diastolicText:TextView) {
+    private fun accessGoogleFit(heartRateText:TextView, oxygenText: TextView) {
         val end = LocalDateTime.now()
         val startDate = end.minusDays(7)
         val endSeconds = end.atZone(ZoneId.systemDefault()).toEpochSecond()
         val startSeconds = startDate.atZone(ZoneId.systemDefault()).toEpochSecond()
-        val account = GoogleSignIn.getAccountForExtension(activity as Activity, bloodPressureOptions)
+        val account = GoogleSignIn.getAccountForExtension(activity as Activity, healthDataOptions)
 
         //OBTENER LA CANTIDAD DE PASOS
 
         val readRequest = DataReadRequest.Builder()
-            .aggregate(HealthDataTypes.TYPE_BLOOD_PRESSURE)
+            .aggregate(HealthDataTypes.TYPE_OXYGEN_SATURATION)
             .aggregate(DataType.TYPE_HEART_RATE_BPM)
             .setTimeRange(startSeconds, endSeconds, TimeUnit.SECONDS)
             .bucketByTime(5, TimeUnit.MINUTES) //Guarda en grupos de 5 minutos de intervalo
@@ -98,7 +97,7 @@ class StatsFragment : Fragment() {
             .addOnSuccessListener { response ->
                 for (dataSet in response.buckets.flatMap { it.dataSets }) {
                     if(dataSet.dataPoints.size>0){
-                        dumpDataSet(dataSet, heartRateText, systolicText,  diastolicText)
+                        dumpDataSet(dataSet, heartRateText, oxygenText)
                     }
                 }
                 Log.i("Conexion", "Conectado")
@@ -107,20 +106,20 @@ class StatsFragment : Fragment() {
 
 
     }
-    fun dumpDataSet(dataSet: DataSet,  heartRateText:TextView, systolicText:TextView,  diastolicText:TextView) {
-        Log.i("Tipo de dato", "Data returned for Data type: ${dataSet.dataType.name}")
-        Log.i("DATAPOINT",dataSet.dataPoints.toString())
+    fun dumpDataSet(dataSet: DataSet,  heartRateText:TextView, oxygenText: TextView) {
+       Log.i("Tipo de dato", "Data returned for Data type: ${dataSet.dataType.name}")
+    //    Log.i("DATAPOINT",dataSet.dataPoints.toString())
         for (dp in dataSet.dataPoints) {
-            Log.i("Heart rate","Data point:")
-            Log.i("Data type name","\tType: ${dp.dataType.name}")
-            Log.i("Start time","\tStart: ${dp.getStartTimeString()}")
-            Log.i("End time","\tEnd: ${dp.getEndTimeString()}")
+           // Log.i("Heart rate","Data point:")
+           // Log.i("Data type name","\tType: ${dp.dataType.name}")
+          //  Log.i("Start time","\tStart: ${dp.getStartTimeString()}")
+          //  Log.i("End time","\tEnd: ${dp.getEndTimeString()}")
 
             for (field in dp.dataType.fields) {
-                Log.i("heart rate","\tField: ${field.name.toString()} Value: ${dp.getValue(field)}")
+                Log.i("dato","\tField: ${field.name.toString()} Value: ${dp.getValue(field)}")
             }
 
-            updateView(dp,heartRateText, systolicText, diastolicText)
+            updateView(dp,heartRateText, oxygenText)
             //OBTENER EL ULTIMO VALOR
         }
     }
@@ -133,8 +132,8 @@ class StatsFragment : Fragment() {
         .atZone(ZoneId.systemDefault())
         .toLocalDateTime().toString()
 
-    fun updateView(data:DataPoint, heartRateText:TextView, systolicText:TextView,  diastolicText:TextView){
-        Log.i("DATA",data.toString())
+    fun updateView(data:DataPoint, heartRateText:TextView, oxygenText: TextView){
+       // Log.i("DATA",data.toString())
         if(data is DataPoint){
             for (field in data.dataType.fields) {
                 //Log.i("WHEN", "entre con valor: ${field.name}")
@@ -145,23 +144,14 @@ class StatsFragment : Fragment() {
                         heartRateText.text = "${data.getValue(field)} BPM"
                     }
 
-                    "blood_pressure_systolic_average"
+                    "oxygen_saturation_average"
                     -> {
-                        systolicText.text = "${data.getValue(field)}"
+                        oxygenText.text = "${data.getValue(field)} %"
                     }
-                    "blood_pressure_diastolic_average"
-                    -> {
-                        diastolicText.text = "${data.getValue(field)}"
-                    }
-
-
                 }
             }
         }
     }
-
-
-
 
 
     companion object {
