@@ -79,90 +79,174 @@
             </LinearLayout>
 
         </LinearLayout>
-
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingTop="50dp"
-            android:layout_gravity="left">
+            android:layout_height="wrap_content">
 
-            <TextView
-                android:id="@+id/textView10"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginEnd="182dp"
-                android:layout_marginTop="0dp"
-                android:layout_weight="1"
-                android:foregroundGravity="left"
-                android:gravity="center"
-                android:text="NOMBRE DEL EVENTO"
-                android:textSize="20dp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
-
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <EditText
-                android:id="@+id/eT_Event"
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:layout_marginEnd="150dp"
-                android:layout_marginTop="40dp"
-                android:background="@drawable/rounded_corners1"
-
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:text=""
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="203dp"
+                android:layout_height="207dp"
+                android:layout_gravity="right"
+                android:orientation="vertical"
+                android:paddingTop="50dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.005" />
+                app:layout_constraintStart_toEndOf="@+id/constraintLayout"
+                app:layout_constraintTop_toTopOf="parent">
 
-            <TextView
-                android:id="@+id/textView11"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginEnd="270dp"
-                android:layout_marginTop="110dp"
-                android:layout_weight="1"
-                android:foregroundGravity="left"
-                android:gravity="center"
-                android:text="¿QUE PASO?"
-                android:textSize="20dp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toStartOf="parent"
+                <EditText
+                    android:id="@+id/oxygenInput"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:background="@drawable/rounded_corners1"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:text=""
+                    app:layout_constraintBaseline_toBottomOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.497"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textViewOxygen"
+                    app:layout_constraintVertical_bias="0.12" />
 
-                app:layout_constraintTop_toTopOf="parent" />
+                <TextView
+                    android:id="@+id/textViewHeartRate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_weight="1"
+                    android:foregroundGravity="left"
+                    android:gravity="center"
+                    android:text="Ritmo cardíaco"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@+id/heartRateInput"
+                    app:layout_constraintEnd_toEndOf="parent"
 
-            <EditText
-                android:id="@+id/eT_reasonevent"
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:layout_marginEnd="150dp"
-                android:layout_marginTop="150dp"
-                android:background="@drawable/rounded_corners1"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:text=""
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.005" />
+                    app:layout_constraintHorizontal_bias="0.495"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <EditText
+                    android:id="@+id/heartRateInput"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:background="@drawable/rounded_corners1"
+
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:text=""
+                    app:layout_constraintBottom_toTopOf="@+id/textViewOxygen"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.497"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textViewHeartRate"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <TextView
+                    android:id="@+id/textViewOxygen"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_weight="1"
+                    android:foregroundGravity="left"
+                    android:gravity="center"
+                    android:text="SpO2"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@+id/oxygenInput"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.496"
+
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/heartRateInput" />
 
 
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout"
+                android:layout_width="200dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="right"
+                android:orientation="vertical"
+                android:paddingTop="50dp"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <EditText
+                    android:id="@+id/eT_reasonevent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:background="@drawable/rounded_corners1"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:text=""
+                    app:layout_constraintBaseline_toBottomOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.497"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView11"
+                    app:layout_constraintVertical_bias="0.12" />
+
+                <TextView
+                    android:id="@+id/textView10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_weight="1"
+                    android:foregroundGravity="left"
+                    android:gravity="center"
+                    android:text="NOMBRE DEL EVENTO"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@+id/eT_Event"
+                    app:layout_constraintEnd_toEndOf="parent"
+
+                    app:layout_constraintHorizontal_bias="0.495"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <EditText
+                    android:id="@+id/eT_Event"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:background="@drawable/rounded_corners1"
+
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:text=""
+                    app:layout_constraintBottom_toTopOf="@+id/textView11"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.497"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView10"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <TextView
+                    android:id="@+id/textView11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_weight="1"
+                    android:foregroundGravity="left"
+                    android:gravity="center"
+                    android:text="¿QUE PASO?"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@+id/eT_reasonevent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.496"
+
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/eT_Event" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -174,16 +258,18 @@
                 android:layout_height="189dp"
                 android:orientation="vertical"
                 android:paddingTop="20dp">
+
                 <TextView
                     android:id="@+id/textView15"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_marginBottom="20dp"
                     android:layout_marginStart="20dp"
+                    android:layout_marginBottom="20dp"
                     android:text="¿Como te sentiste?"
                     android:textSize="20dp"
                     android:textStyle="bold" />
+
                 <SeekBar
                     android:id="@+id/feelingM"
                     android:layout_width="200dp"
@@ -196,15 +282,13 @@
                     android:id="@+id/feeling_numberM"
                     android:layout_width="160dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="20dp"
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="15dp"
+                    android:layout_marginBottom="20dp"
                     android:gravity="center"
                     android:text="5"
                     android:textSize="20dp"
                     android:textStyle="bold" />
-
-
 
 
             </LinearLayout>
@@ -233,12 +317,12 @@
                         android:id="@+id/ib_tup"
                         android:layout_width="68dp"
                         android:layout_height="66dp"
+                        android:background="#00000000"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.116"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        android:background="#00000000"
                         app:layout_constraintVertical_bias="0.513"
                         app:srcCompat="@drawable/ic_baseline_thumb_up_24" />
 

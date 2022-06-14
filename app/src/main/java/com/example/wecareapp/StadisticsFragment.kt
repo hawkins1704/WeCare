@@ -1,33 +1,15 @@
 package com.example.wecareapp
 
-import android.graphics.Color
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.DividerItemDecoration
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.androidplot.xy.*
 import com.demo.retrofitwithpost.GetEventsVM
-import com.example.wecareapp.model.Event
-import com.example.wecareapp.model.EventGet
-import com.example.wecareapp.model.EventList
-import com.example.wecareapp.recyclerview.RecyclerViewAdapter
-import com.example.wecareapp.viewmodel.CreateEventVM
 import com.github.aachartmodel.aainfographics.aachartcreator.AAChartModel
 import com.github.aachartmodel.aainfographics.aachartcreator.AAChartType
 import com.github.aachartmodel.aainfographics.aachartcreator.AAChartView
 import com.github.aachartmodel.aainfographics.aachartcreator.AASeriesElement
-import java.text.FieldPosition
-import java.text.Format
-import java.text.ParsePosition
-import java.util.*
-import kotlin.collections.ArrayList
 
 
 class StadisticsFragment : Fragment(){
@@ -70,6 +52,7 @@ class StadisticsFragment : Fragment(){
             )
 
         val aaChartModelHearRate : AAChartModel = AAChartModel()
+            .categories(arrayOf("lunes","martes","miercoles","jueves","viernes","sabado","domingo"))
             .chartType(AAChartType.Line)
             .title("Ritmo Cardíaco")
             .backgroundColor("#FAFAFA")
@@ -81,25 +64,22 @@ class StadisticsFragment : Fragment(){
             )
             )
 
-        val aaChartModelBloodPressure : AAChartModel = AAChartModel()
+        val aaChartModelOxygen : AAChartModel = AAChartModel()
+            .categories(arrayOf("lunes","martes","miercoles","jueves","viernes","sabado","domingo"))
             .chartType(AAChartType.Line)
-            .title("Presión Arterial")
+            .title("Saturación de oxígeno")
             .backgroundColor("#FAFAFA")
             .dataLabelsEnabled(true)
             .series(arrayOf(
                 AASeriesElement()
-                    .name("Sistólica")
-                    .data(arrayOf(118, 129, 120, 119, 143, 115, 125)),
-                AASeriesElement()
-                    .name("Diastólica")
-                    .data(arrayOf(72, 79, 70, 76, 76, 62, 75)),
+                    .name("Saturación de oxígeno")
+                    .data(arrayOf(95, 92, 96, 95, 98, 97, 92)),
             )
             )
-
 
         aaChartView.aa_drawChartWithChartModel(aaChartModelEstadoAnimo)
         aaChartView2.aa_drawChartWithChartModel(aaChartModelHearRate)
-        aaChartView3.aa_drawChartWithChartModel(aaChartModelBloodPressure)
+        aaChartView3.aa_drawChartWithChartModel(aaChartModelOxygen)
         // Inflate the layout for this fragment
 
         return view

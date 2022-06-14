@@ -4,7 +4,7 @@ import android.media.metrics.Event
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.wecareapp.api.RetroInstance
-import com.example.wecareapp.model.EventGet
+//import com.example.wecareapp.model.EventGet
 import com.example.wecareapp.services.RetroServiceInterface
 import retrofit2.Call
 import retrofit2.Callback
@@ -13,18 +13,20 @@ import retrofit2.Response
 class GetEventsVM: ViewModel() {
 
 
-    lateinit var recyclerListData: MutableLiveData<List<EventGet>?>
+   // lateinit var recyclerListData: MutableLiveData<List<EventGet>?>
 
     init {
-        recyclerListData = MutableLiveData()
+     //   recyclerListData = MutableLiveData()
 
     }
 
-
+/*
     fun getUserListObserverable() : MutableLiveData<List<EventGet>?> {
         return recyclerListData
     }
 
+ */
+/*
     fun EventList() {
 
         val retroInstance = RetroInstance.getRetroInstance().create(RetroServiceInterface::class.java)
@@ -44,6 +46,8 @@ class GetEventsVM: ViewModel() {
             }
         })
     }
+
+ */
 
     /*fun searchUser(searchText: String) {
 
