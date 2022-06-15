@@ -89,9 +89,6 @@ class StatsFragment : Fragment() {
             .setTimeRange(startSeconds, endSeconds, TimeUnit.SECONDS)
             .bucketByTime(5, TimeUnit.MINUTES) //Guarda en grupos de 5 minutos de intervalo
             .build()
-
-
-
         Fitness.getHistoryClient(activity as Activity, account)
             .readData(readRequest)
             .addOnSuccessListener { response ->
@@ -103,8 +100,6 @@ class StatsFragment : Fragment() {
                 Log.i("Conexion", "Conectado")
             }
             .addOnFailureListener({ e -> Log.d("PRUEBAS", "OnFailure()", e) })
-
-
     }
     fun dumpDataSet(dataSet: DataSet,  heartRateText:TextView, oxygenText: TextView) {
        Log.i("Tipo de dato", "Data returned for Data type: ${dataSet.dataType.name}")

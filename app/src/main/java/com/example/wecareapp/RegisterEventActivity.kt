@@ -9,7 +9,6 @@ import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.example.wecareapp.model.*
-import com.example.wecareapp.viewmodel.CreateEventVM
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 import java.time.temporal.TemporalField
@@ -17,7 +16,7 @@ import java.time.temporal.WeekFields
 import java.util.*
 
 class RegisterEventActivity : AppCompatActivity() {
-    lateinit var viewModel: CreateEventVM
+    //lateinit var viewModel: CreateEventVM
 
     @RequiresApi(Build.VERSION_CODES.O)
 
@@ -112,12 +111,13 @@ class RegisterEventActivity : AppCompatActivity() {
         var et_reasonevent = findViewById<EditText>(R.id.eT_reasonevent).text.toString()
         var tv_detail_event =
             findViewById<AutoCompleteTextView>(R.id.tv_detail_event).text.toString()
-        val event = Event(et_event, et_reasonevent, feelingNum.toInt(), result, tv_detail_event, 1)
-        viewModel.createNewEvent(event, con)
+        val event = Event(et_event, et_reasonevent, feelingNum.toInt(), result, tv_detail_event, "17-04-2022  15:30" ,1)
+        //viewModel.createNewEvent(event, con)
 
     }
 
     private fun initViewModel() {
+        /*
         viewModel = ViewModelProvider(this).get(CreateEventVM::class.java)
         viewModel.getCreateNewUserObserver().observe(this,{
 
@@ -128,5 +128,7 @@ class RegisterEventActivity : AppCompatActivity() {
                 Toast.makeText(this, "Successfully created User", Toast.LENGTH_LONG).show()
             }
         })
+
+         */
     }
 }

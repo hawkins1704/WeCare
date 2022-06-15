@@ -23,14 +23,12 @@ interface RetroServiceInterface {
         "Authorization: Bearer 73668350bdf06c66f3388408c1a712b378c3e25da599753b21b664a6261e246c"*/)
     fun createLog(@Body params: User): Call<UserResponse>
 
-
-    @POST("events")
-    @Headers("Accept:application/json", "Content-Type:application/json"/*,
-        "Authorization: Bearer 73668350bdf06c66f3388408c1a712b378c3e25da599753b21b664a6261e246c"*/)
-    fun createEvent(@Body params: Event): Call<EventResponse>
+/*
 
     @GET("events/today/{user_id}")
     @Headers("Accept:application/json", "Content-Type:application/json"/*,
         "Authorization: Bearer 73668350bdf06c66f3388408c1a712b378c3e25da599753b21b664a6261e246c"*/)
-    fun getEventList (@Path("user_id") user_id:String): Call<List<EventGet>>
+   fun getEventList (@Path("user_id") user_id:String): Call<List<EventGet>>
+
+ */
 }

@@ -14,7 +14,7 @@ import com.example.wecareapp.services.RetroServiceInterface
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-
+/*
 class CreateEventVM: ViewModel() {
     lateinit var createNewUserLiveData: MutableLiveData<EventResponse?>
     init {
@@ -64,5 +64,7 @@ class CreateEventVM: ViewModel() {
 
 }
 
+
+ */
 
 
