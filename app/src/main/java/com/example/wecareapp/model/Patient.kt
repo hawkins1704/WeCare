@@ -5,7 +5,7 @@ data class Patient(
     val Lastname: String,
     val Email: String,
     val Password: String,
-    val ConfirPassowrd: String,
+    val ConfirmPassword: String,
 )
 data class PatientResponse(
     val patientId : Int,

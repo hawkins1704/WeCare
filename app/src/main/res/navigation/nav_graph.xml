@@ -21,11 +21,6 @@
         android:name="com.example.wecareapp.StatsFragment"
         android:label="fragment_stats"
         tools:layout="@layout/fragment_stats" />
-    <fragment
-        android:id="@+id/stadisticsFragment"
-        android:name="com.example.wecareapp.StadisticsFragment"
-        android:label="fragment_stadistics"
-        tools:layout="@layout/fragment_stadistics" />
 
     <fragment
         android:id="@+id/ButtonBreathActivity"

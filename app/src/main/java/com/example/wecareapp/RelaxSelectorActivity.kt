@@ -26,7 +26,7 @@ class RelaxSelectorActivity : AppCompatActivity() {
         })
         var buttonmusic =findViewById<ImageButton>(R.id.bt_escuchar_musica)
         buttonmusic.setOnClickListener(View.OnClickListener {
-            var intent = Intent(this, MediaPlayerActivity::class.java).apply {
+            var intent = Intent(this, MusicTypeSelector::class.java).apply {
                 //putExtra("Username",user.name)
             }
             startActivity(intent)

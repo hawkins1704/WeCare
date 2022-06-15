@@ -16,7 +16,7 @@ class LogAsActivity: AppCompatActivity() {
             startActivity(intent)
         }
         btAsSpetialist.setOnClickListener{
-            val intent= Intent(this, SpetialistHome::class.java)
+            val intent= Intent(this, SpetialistSelectorActivity::class.java)
             startActivity(intent)
         }
 

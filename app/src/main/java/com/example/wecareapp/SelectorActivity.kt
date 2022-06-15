@@ -28,7 +28,7 @@ class SelectorActivity : AppCompatActivity() {
         val bottomNavigationView = binding.buttonNav
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         val appBarConfiguration = AppBarConfiguration(
-            setOf(R.id.homeFragment, R.id.stadisticsFragment, R.id.feelingFragment2,R.id.statsFragment)
+            setOf(R.id.homeFragment, R.id.feelingFragment2,R.id.statsFragment)
         )
 
         val navController = navHostFragment.navController
@@ -36,10 +36,6 @@ class SelectorActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController,appBarConfiguration)
         // Sincronizacion del navController con nuesto bottom navigation
         bottomNavigationView.setupWithNavController(navController)
-
-
-
-
 
     }
 

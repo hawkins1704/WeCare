@@ -59,17 +59,48 @@
             android:id="@+id/remainingTimeLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="-1:11"
-            android:layout_marginLeft="240dp"/>
+            android:layout_marginLeft="240dp"
+            android:text="-1:11" />
     </LinearLayout>
 
-    <Button
-        android:id="@+id/playBtn"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:background="@drawable/play"
-        android:layout_marginTop="40dp"
-        android:onClick="playBtnClick"/>
+    <RelativeLayout
+        android:layout_width="185dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/playBtn"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="39dp"
+            android:layout_marginEnd="23dp"
+            android:layout_toStartOf="@+id/NextBtn"
+            android:background="@drawable/play"
+            android:onClick="playBtnClick" />
+
+        <Button
+            android:id="@+id/previousBtn"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="29dp"
+            android:layout_marginEnd="23dp"
+            android:layout_toStartOf="@+id/playBtn"
+            android:background="@android:drawable/ic_media_previous"
+            android:onClick="previousBtnClick" />
+
+        <Button
+            android:id="@+id/NextBtn"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="26dp"
+            android:layout_marginEnd="0dp"
+            android:background="@android:drawable/ic_media_next"
+            android:onClick="nextBtnClick" />
+    </RelativeLayout>
 
 
 </LinearLayout>

@@ -13,14 +13,20 @@ import android.widget.TextView
 
 
 class MediaPlayerActivity : AppCompatActivity() {
-    private lateinit var mp: MediaPlayer
-    private var totalTime: Int = 0
-
+    private lateinit var mp: MediaPlayer;
+    private var totalTime: Int = 0;
+    var canciones: IntArray = intArrayOf(R.raw.click, R.raw.music)
+    var posicion=0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_media_player)
 
-        mp = MediaPlayer.create(this, R.raw.music)
+        for ((posicion,valor) in canciones.withIndex()){
+            mp = MediaPlayer.create(this, canciones[posicion])
+        }
+
+
+
         mp.isLooping = true
         mp.setVolume(0.5f, 0.5f)
         totalTime = mp.duration
@@ -113,7 +119,6 @@ class MediaPlayerActivity : AppCompatActivity() {
         if (mp.isPlaying) {
             // Stop
             mp.pause()
-
             playBtn.setBackgroundResource(R.drawable.play)
 
         } else {
@@ -123,5 +128,27 @@ class MediaPlayerActivity : AppCompatActivity() {
         }
     }
 
+    fun nextBtnClick(v: View) {
+        posicion=posicion+1
+        var nextBtn = findViewById<Button>(R.id.NextBtn)
+        if (posicion > canciones.size-1)
+        {
+            posicion=0
+            mp.pause()
+            mp = MediaPlayer.create(this, canciones[posicion])
+            totalTime=mp.duration
+            playBtnClick(v)
+        }
+        else{
+            mp.pause()
+            mp = MediaPlayer.create(this, canciones[posicion])
+            totalTime=mp.duration
+            playBtnClick(v)
+
+        }
+    }
+    fun previousBtnClick(v: View) {
+
+    }
 
 }

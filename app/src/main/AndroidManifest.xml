@@ -17,19 +17,66 @@
 
         </activity>
         <activity android:name=".LogAsActivity" />
-        <activity android:name=".SpetialistHome" />
-        <activity android:name=".ButtonBreathActivity" />
-        <activity android:name=".RelaxSelectorActivity" />
+        <activity android:name=".ButtonBreathActivity"
+            android:theme="@style/Theme.Toolbar"
+            android:parentActivityName=".RelaxSelectorActivity"
+            android:exported="false"/>
+        <activity android:name=".RelaxSelectorActivity"
+            android:theme="@style/Theme.Toolbar"
+            android:parentActivityName=".SelectorActivity"
+            android:exported="false"/>
         <activity android:name=".MediaPlayerActivity" />
         <activity android:name=".RegisterEventActivity">
 
         </activity>
         <activity android:name=".MiEspActivity" />
+        <activity android:name=".PendingProfile"
+            android:parentActivityName=".PendingPatients"
+            android:theme="@style/Theme.Toolbar"/>
+        <activity android:name=".PendingProfile2"
+            android:parentActivityName=".PendingPatients"
+            android:theme="@style/Theme.Toolbar"/>
+        <activity android:name=".PendingProfile3"
+            android:parentActivityName=".PendingPatients"
+            android:theme="@style/Theme.Toolbar"/>
         <activity android:name=".PerfilActivity" />
+        <activity android:name=".SpetialistProfileActivity"
+            android:parentActivityName=".SpetialistSelectorActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Toolbar"/>
+        <activity android:name=".PendingPatients"
+            android:parentActivityName=".SpetialistSelectorActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Toolbar"/>
+        <activity
+            android:name=".SpetialistSelectorActivity"
+
+            android:theme="@style/Theme.Toolbar"/>
+        <activity
+            android:name=".MusicTypeSelector"
+            android:theme="@style/Theme.Toolbar"
+            android:parentActivityName=".RelaxSelectorActivity"
+            android:exported="false"/>
         <activity
             android:name=".SelectorActivity"
             android:theme="@style/Theme.Toolbar" />
         <activity android:name=".RegisterActivity2" />
+        <activity android:name=".LofiMediaPlayerActivity"
+                  android:theme="@style/Theme.Toolbar"
+                  android:parentActivityName=".MusicTypeSelector"
+                  android:exported="false" />
+        <activity android:name=".NatureMediaPlayerActivity"
+                  android:theme="@style/Theme.Toolbar"
+                  android:parentActivityName=".MusicTypeSelector"
+                  android:exported="false" />
+        <activity android:name=".SeaMediaPlayerActivity"
+                  android:theme="@style/Theme.Toolbar"
+                  android:parentActivityName=".MusicTypeSelector"
+                  android:exported="false" />
+        <activity android:name=".PianoMediaPLayerActivity"
+                  android:theme="@style/Theme.Toolbar"
+                  android:parentActivityName=".MusicTypeSelector"
+                  android:exported="false" />
         <activity android:name=".RegisterActivity1" />
         <activity android:name=".SelectRolActivity" />
         <activity android:name=".MainActivity">
